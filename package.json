@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "gray": "vue-cli-service build --mode gray",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
