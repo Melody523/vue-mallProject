@@ -160,6 +160,7 @@ data() {
   <div class="home-container">
     <scroll class="home-content" ref="scroll" :probeType="3" @scroll="scroll">
       <home-nav-bar />
+      ...
     </scroll>
     <!-- 监听一个组件的原生事件时必须给对应事件加上.native修饰符才能进行监听 -->
     <back-top v-show="showBackTop" @click.native="backTop" />
