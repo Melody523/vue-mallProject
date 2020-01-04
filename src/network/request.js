@@ -5,7 +5,8 @@ import { MessageBox, Indicator } from 'mint-ui'
 export function request(config) {
   //创建axios实例
   const instance = axios.create({
-    baseURL: '/api',
+    // baseURL: '/api',
+    baseURL: 'http://www.weinihaigou.com',
     timeout: 5000,
     headers: {'X-Requested-With': 'XMLHttpRequest'}
   });
