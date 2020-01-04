@@ -6,7 +6,7 @@ export function request(config) {
   //创建axios实例
   const instance = axios.create({
     // baseURL: '/api',
-    baseURL: 'http://www.weinihaigou.com',
+    baseURL: '',
     timeout: 5000,
     headers: {'X-Requested-With': 'XMLHttpRequest'}
   });

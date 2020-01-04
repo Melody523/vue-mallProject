@@ -1,7 +1,7 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   outputDir: 'dist',
-  productionSourceMap: false,
+  productionSourceMap: true,
   assetsDir: 'static',
   filenameHashing: true,
   pages: {
@@ -17,19 +17,22 @@ module.exports = {
       chunks: ["chunk-vendors", "chunk-common", "index"]
     }
   },
-  devServer: {
-    port: 8080,
-    disableHostCheck: true,
-    proxy: {
-      '/api': {
-        target: 'http://www.weinihaigou.com',
-        ws: true,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''   //重写接口
-        }
-      }
-    }
+  // devServer: {
+  //   port: 8080,
+  //   disableHostCheck: true,
+  //   proxy: {
+  //     '/api': {
+  //       target: 'http://www.weinihaigou.com',
+  //       ws: true,
+  //       changeOrigin: true,
+  //       pathRewrite: {
+  //         '^/api': ''   //重写接口
+  //       }
+  //     }
+  //   }
+  // },
+  devServer:{
+    proxy: "http://www.weinihaigou.com"
   },
   configureWebpack: {
     resolve: {
