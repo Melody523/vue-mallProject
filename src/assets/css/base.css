@@ -1,0 +1,126 @@
+@import "./normalize.css";
+
+/*:root -> 获取根元素html*/
+:root {
+  --color-text: #a9a9a9;
+  --color-high-text: #f05b1a;
+  --color-tint: #ff8198;
+  --color-background: #fff;
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+  -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
+  background: var(--color-background);
+  color: var(--color-text);
+  /* rem vw/vh */
+  width: 100vw;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+.clear-fix::after {
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clear-fix {
+  zoom: 1;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+.text-overflow2{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.text-overflow1{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.left-icon{
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #333;
+  border-right: 1px solid #333;
+  transform: translate(0, -50%) rotate(45deg);
+}
+.mask{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+input::-webkit-input-placeholder {
+  color: #ccc;
+  font-size: 14px;
+}
+input::-moz-input-placeholder {
+  color: #ccc;
+  font-size: 14px;
+}
+input::-ms-input-placeholder {
+  color: #ccc;
+  font-size: 14px;
+}
+input:focus{
+  outline:none;
+}
+textarea:focus{
+  outline:none;
+}
+select:focus{
+  outline:none;
+}
+.dotted{
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  right: -3px;
+  top: -3px;
+  background: #f05b1a;
+  border-radius: 50%;
+}
+
