@@ -75,7 +75,7 @@
         <img class="icon" src="http://www.weinihaigou.com/m-images/goods-custom.png" alt="">
       </div>
       <div class="cancel-btn" @click="cancelOrder(orderDetail.tradeNo)">取消订单</div>
-      <div class="pay-btn" @click="goTOPay(orderDetail.tradeNo)">继续支付</div>
+      <div class="pay-btn" @click="goToPay(orderDetail.tradeNo)">继续支付</div>
     </div>
     <delect v-show="isDelete" @cancelDel="cancelDel" @confirmDel="confirmDel" />
   </div>
@@ -174,7 +174,7 @@
           }
         })
       },
-      goTOPay(tradeNo) {
+      goToPay(tradeNo) {
         let payStatus = 4 //选择支付宝付款
         toPay({tradeNo: tradeNo, payStatus: payStatus}).then(res => {
           console.log(res)

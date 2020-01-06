@@ -49,7 +49,8 @@
 
 <style lang="less" scoped>
   .total-count{
-    position: absolute;
+    position: fixed;
+    background-color: #fff;
     bottom: 49px;
     left: 0;
     height: 50px;

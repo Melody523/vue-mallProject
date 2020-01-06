@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueLazyLoad from 'vue-lazyload'
+import FastClick from 'fastclick'
 
 import toast from 'components/common/toast/index'
 
@@ -22,6 +23,8 @@ router.beforeEach((to, from, next) => {
   document.title = to.meta.title
   next()
 })
+
+FastClick.attach(document.body)
 
 new Vue({
   router,

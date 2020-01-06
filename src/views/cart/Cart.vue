@@ -230,7 +230,7 @@
       overflow-y: hidden;
       position: absolute;
       top: 44px;
-      bottom: 99px;
+      bottom: 100px;
       left: 0;
       right: 0;
     }

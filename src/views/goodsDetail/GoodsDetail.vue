@@ -4,8 +4,8 @@
     <scroll class="goods-detail-content" ref="scroll" :probeType="3" @scroll="scroll">
       <goods-detail-swipe :bannerList="goodsBannerList" />
       <goods-detail-price :goodsDetailPrice="goodsDetailPrice" />
-      <div class="dispatch-container">
-        配送至: <span class="dispatch-area" @click="showCity">{{chooseProvince}}   {{chooseCity}}</span><span class="left-icon"></span>
+      <div class="dispatch-container" @click="showCity">
+        配送至: <span class="dispatch-area" >{{chooseProvince}}   {{chooseCity}}</span><span class="left-icon"></span>
       </div>
       <goods-detail-instruction @click.native="showInstruction" />
       <brand-desc :goodsBrand="goodsBrand" />

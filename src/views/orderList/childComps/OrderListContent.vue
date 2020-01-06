@@ -26,7 +26,7 @@
         </div>
         <div class="control-btn" v-if="item.tradeStatus==1">
           <div class="btn cancel-btn" @click="cancelOrder(item.tradeNo)">取消订单</div>
-          <div class="btn pay-btn">去付款</div>
+          <div class="btn pay-btn" @click="goToPay(item.tradeNo)">去付款</div>
         </div>
         <div class="control-btn" v-else-if="item.tradeStatus==7">
           <div class="btn check-btn">查看物流</div>
@@ -43,6 +43,8 @@
 
 <script>
   import filterTime from 'utils/filterTime'
+
+  import { toPay } from 'network/order'
 
   export default {
     name: 'OrderListContent',
@@ -97,6 +99,17 @@
       },
       toOrderDetailPage(tradeNo) {
         this.$router.push('/orderDetail?tradeNo=' + tradeNo)
+      },
+      goToPay(tradeNo) {
+        let payStatus = 4 //选择支付宝付款
+        toPay({tradeNo: tradeNo, payStatus: payStatus}).then(res => {
+          console.log(res)
+          if(res.success == true){
+            window.location.href = res.result
+          } else{
+            this.$toast.show(res.msg, 1500)
+          }
+        })
       }
     }
   }
