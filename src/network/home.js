@@ -7,9 +7,9 @@ export function indexMobileTop() {
   })
 }
 
-export function indexHotList() {
+export function indexHotList(vm) {
   return request({
     url: '/indexHotList.shtml',
     method: 'post'
-  })
+  }, vm)
 }

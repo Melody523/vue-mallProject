@@ -6,10 +6,12 @@ import VueLazyLoad from 'vue-lazyload'
 import FastClick from 'fastclick'
 
 import toast from 'components/common/toast/index'
+import loading from 'components/common/loading/index'
 
 Vue.config.productionTip = false
 
 Vue.use(toast)
+Vue.use(loading)
 Vue.use(VueLazyLoad, {
   loading: require('assets/img/error.jpg'),
   error: require('assets/img/error.jpg')
@@ -26,7 +28,7 @@ router.beforeEach((to, from, next) => {
 
 FastClick.attach(document.body)
 
-new Vue({
+export default new Vue({
   router,
   store,
   render: h => h(App)

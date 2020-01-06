@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     getIndexMobileTop() {
-      indexMobileTop().then(res => {
+      indexMobileTop(this).then(res => {
         this.bannerList = res.result.banner
         this.hotSearch = res.result.hotSearch
         this.subject = res.result.subject

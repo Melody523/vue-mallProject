@@ -13,16 +13,9 @@
     </scroll>
     <back-top v-show="showBackTop" @click.native="backTop" />
     <total-count :checkAll="checkAll" @clickAllCheck="clickAllCheck" :selectedCal="selectedCal" :selectedFreightMoney="selectedFreightMoney" @toSurePay="toSurePay" />
-    <div class="delect-container" v-show="showDelect">
-      <div class="mask"></div>
-      <div class="delect-content">
-        <div class="delect-header">确定要删除吗？</div>
-        <div class="delect-btn">
-          <div class="cancel" @click="cancelDel">取消</div>
-          <div class="confirm" @click="confirmDel">确认</div>
-        </div>
-      </div>
-    </div>
+    <delect v-show="showDelect" @cancelDel="cancelDel" @confirmDel="confirmDel">
+      <div slot="content" class="delect-header">确定要删除吗？</div>
+    </delect>
   </div>
 </template>
 
@@ -30,6 +23,7 @@
   import { shopCarIndexMobile, addShopCar, delShopCar } from 'network/cart'
 
   import Scroll from 'components/common/scroll/Scroll'
+  import Delect from 'components/content/delect/Delect'
 
   import CartNavBar from './childComps/CartNavBar'
   import CartListContent from './childComps/CartListContent'
@@ -53,6 +47,7 @@
     mixins: [backtopMixin],
     components: {
       Scroll,
+      Delect,
       CartNavBar,
       CartListContent,
       TotalCount
