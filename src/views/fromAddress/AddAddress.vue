@@ -195,6 +195,7 @@
           .select{
             border: 0 none;
             appearance: none;
+            background: #fff;
             .option{
               height: 20px;
               line-height: 20px;

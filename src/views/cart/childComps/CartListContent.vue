@@ -5,7 +5,10 @@
         <div v-for="(item, i) in cartItem.shopCarList" :key="item.cartId">
           <div class="item-top">
             <img class="checkbox" @click="chooseClick(index, i)" v-lazy="item.checked?require('assets/img/cart/choose_active.svg'):require('assets/img/cart/choose.svg')" alt="">
-            <img class="img" v-lazy="item.imgUrl" alt="" @click="toGoodsDetail(item.goodsNo)">
+            <div class="img-box">
+              <img class="img" v-lazy="item.imgUrl" alt="" @click="toGoodsDetail(item.goodsNo)">
+              <div v-if='item.isShow == 0 || item.status != 1' class="no-goods">已下架</div>
+            </div>
             <div class="goods-desc"  @click="toGoodsDetail(item.goodsNo)">
               <p class="title text-overflow2">{{item.goodsName}}</p>
               <p class="sku-name">规格:{{item.skuName}}</p>
@@ -13,7 +16,7 @@
               <p class="price">￥{{item.skuPrice.toFixed(2)}}</p>
             </div>
             <div class="num-content">
-              <div class="num" v-if="!isEdit">
+              <div class="num" v-if="!isEdit && item.realStock > 0">
                 <div class="sub" @click="item.num > 1 ? addGoodsNum(item.goodsId, item.skuId, -1) : ''" :class="{'no-sub': item.num <= 1 }">-</div>
                 <div class="number">{{item.num}}</div>
                 <div class="add" @click="addGoodsNum(item.goodsId, item.skuId, 1)">+</div>
@@ -94,6 +97,24 @@
     .cart-list{
       .cart-item{
         border-bottom: 1px solid #eee;
+        .img-box{
+          position: relative;
+          .no-goods{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px 0;
+            width: 50px;
+            text-align: center;
+            background: #7f7f7f;
+            opacity: 0.7;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 12px;
+          }
+        }
+        
         .item-top{
           display: flex;
           align-items: center;

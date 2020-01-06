@@ -2,10 +2,10 @@
   <div class="order">
     <div class="order-header">
       <span class="my-order">我的订单</span>
-      <span class="cheak-order" @click="toOrderListPage">查看全部订单></span>
+      <span class="cheak-order" @click="toOrderListPage(0)">查看全部订单></span>
     </div>
     <ul class="order-list" v-if="Object.keys(tradeCount) != 0">
-      <li class="order-item" v-for="(item, index) in orderTypeList" :key="item.img">
+      <li class="order-item" v-for="(item, index) in orderTypeList" :key="item.img" @click="toOrderListPage(item.type)">
         <img class="icon" v-lazy="item.img" alt="">
         <p class="title">{{item.title}}</p>
         <span class="num" v-if="showCount(index) > 0">{{showCount(index)>99?'99+':showCount(index)}}</span>
@@ -31,27 +31,32 @@
           {
             img: 'http://www.weinihaigou.com/m-images/order-1.png',
             title: '待付款',
-            count: 0
+            count: 0,
+            type: 1
           },
           {
             img: 'http://www.weinihaigou.com/m-images/order-2.png',
             title: '待发货',
-            count: 0
+            count: 0,
+            type: 2
           },
           {
             img: 'http://www.weinihaigou.com/m-images/order-3.png',
             title: '待收货',
-            count: 0
+            count: 0,
+            type: 3
           },
           {
             img: 'http://www.weinihaigou.com/m-images/order-4.png',
             title: '已完成',
-            count: 0
+            count: 0,
+            type: 4
           },
           {
             img: 'http://www.weinihaigou.com/m-images/order-5.png',
             title: '售后',
-            count: 0
+            count: 0,
+            type: -1
           },
         ]
       }
@@ -78,8 +83,12 @@
             break;
         }
       },
-      toOrderListPage() {
-        this.$router.push('/orderList')
+      toOrderListPage(type) {
+        if (type != -1) {
+          this.$router.push('/orderList?type=' + type)
+        } else {
+
+        }
       }
     }
   }

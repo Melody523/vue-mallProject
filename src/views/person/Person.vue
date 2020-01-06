@@ -16,6 +16,9 @@
             <img class="head-img" v-lazy="userMessage.headUrl" alt="">
             <img class="icon" src="http://www.weinihaigou.com/m-images/my-tip.png" alt="">
           </p>
+          <div class="change-head-img">
+            <input class="img-input" type="file" name="file" accept="image/*" @change="imgChange">
+          </div>
         </li>
         <li class="person-item" @click="toModifyMobilePage">
           <p class="person-left">手机更换</p>
@@ -44,6 +47,8 @@
 <script>
   import MainNavBar from 'components/content/mainNavBar/MainNavBar'
 
+  import { uploadPic } from 'network/person'
+
   import userMixin from 'mixins/userMixin'
 
   export default {
@@ -67,6 +72,12 @@
       },
       toModifyPsw() {
         this.$router.push('/modifyPsw')
+      },
+      imgChange(e) {
+        console.log(e)
+        uploadPic({id: 'WU_FILE_0', name: e.target.files[0].name, type: e.target.files[0].type, lastModifiedDate: new Date(e.target.files[0].lastModified), size: e.target.files[0].size, pic: '(binary)'}).then(res => {
+          console.log(res)
+        })
       }
     }
   }
@@ -95,6 +106,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
         &:nth-of-type(1) {
           border-bottom:  1px solid #eee;
         }
@@ -106,6 +118,29 @@
         }
         &:nth-last-of-type(2) {
            margin-top: 10px;
+        }
+        .change-head-img{
+          position: absolute; 
+          top: 0px; 
+          left: 0px; 
+          bottom: auto; 
+          right: auto;
+          width: 338px; 
+          height: 46px; 
+          overflow: hidden; 
+          .img-input{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+          }
+          .img-label{
+            opacity: 0; 
+            width: 100%; 
+            height: 100%; 
+            display: block; 
+            background: rgb(255, 255, 255);
+          }
         }
         .person-left{
           font-size: 16px;

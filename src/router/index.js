@@ -18,6 +18,7 @@ const SetPsw = () => import('views/login/SetPsw')
 const SetPswSuccess = () => import('views/login/SetPswSuccess')
 const Protocol = () => import('views/protocol/Protocol')
 const OrderList = () => import('views/orderList/OrderList')
+const OrderDetail = () => import('views/orderDetail/OrderDetail')
 const SurePay = () => import('views/surePay/SurePay')
 const Search = () => import('views/search/Search')
 const MessageCenter = () => import('views/messageCenter/MessageCenter')
@@ -41,7 +42,10 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/home'
+    redirect: '/home',
+    meta: {
+      title: '唯妮海购'
+    }
   },
   {
     path: '/home',
@@ -160,6 +164,13 @@ const routes = [
     component: OrderList,
     meta: {
       title: '我的订单'
+    }
+  },
+  {
+    path: '/orderDetail',
+    component: OrderDetail,
+    meta: {
+      title: '订单详情'
     }
   },
   {

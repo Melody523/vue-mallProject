@@ -47,3 +47,11 @@ export function updateMoPwdByPwd(params) {
     method: 'post'
   })
 }
+
+export function uploadPic(params) {
+  return request({
+    url: '/uploadPic.shtml',
+    params: params,
+    method: 'post'
+  })
+}

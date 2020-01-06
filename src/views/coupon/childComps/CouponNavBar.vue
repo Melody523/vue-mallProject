@@ -7,7 +7,7 @@
       <div slot="center" class="title">
         {{title}}
       </div>
-      <div slot="right" class="exchange">
+      <div slot="right" class="exchange" @click="changeBtn">
         兑换
       </div>
     </nav-bar>
@@ -31,6 +31,9 @@
     methods: {
       goBack() {
         this.$router.go(-1)
+      },
+      changeBtn() {
+        this.$emit('changeBtn')
       }
     }
   }

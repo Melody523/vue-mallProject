@@ -28,3 +28,11 @@ export function loginOut() {
     method: 'post'
   })
 }
+
+export function getConpouByCode(params) {
+  return request({
+    url: '/coupon/getConpouByCode.shtml',
+    params: params,
+    method: 'post'
+  })
+}
